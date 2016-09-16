@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane id="background" fx:id="loginpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="442.0" styleClass="background" stylesheets="@Background.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project1.LoginController">
+   <children>
+      <Button fx:id="login" layoutX="147.0" layoutY="235.0" mnemonicParsing="false" onAction="#login" prefHeight="41.0" prefWidth="88.0" text="Login">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="exit" layoutX="252.0" layoutY="235.0" mnemonicParsing="false" onAction="#exit" prefHeight="41.0" prefWidth="88.0" text="Exit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="33.0" layoutY="139.0" stylesheets="@Background.css" text="Username:" textFill="#b2a6a6">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <effect>
+            <DropShadow radius="4.75" width="0.0" />
+         </effect>
+      </Label>
+      <Label layoutX="38.0" layoutY="180.0" stylesheets="@Background.css" text="Password:" textFill="#b2a6a6">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <effect>
+            <DropShadow radius="4.75" width="0.0" />
+         </effect>
+      </Label>
+      <Label fx:id="Time" layoutX="84.0" layoutY="317.0" prefHeight="25.0" prefWidth="172.0" stylesheets="@Background.css" textFill="#bcb3b3" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+      <Label fx:id="Date" layoutX="90.0" layoutY="343.0" prefHeight="25.0" prefWidth="172.0" stylesheets="@Background.css" textFill="#bcb3b3" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="111.0" layoutY="29.0" stylesheets="@Background.css" text="Welcome !" textFill="#948493">
+         <font>
+            <Font size="48.0" />
+         </font>
+         <effect>
+            <DropShadow color="WHITE" height="102.41" radius="33.9975" spread="0.05" width="35.58">
+               <input>
+                  <Reflection fraction="0.56" topOpacity="0.4" />
+               </input></DropShadow>
+         </effect>
+      </Label>
+      <Label layoutX="40.0" layoutY="343.0" prefHeight="25.0" prefWidth="44.0" stylesheets="@Background.css" text="Date:" textFill="#b2a6a6" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <effect>
+            <DropShadow radius="4.75" width="0.0" />
+         </effect>
+      </Label>
+      <Label layoutX="40.0" layoutY="317.0" prefHeight="25.0" prefWidth="44.0" stylesheets="@Background.css" text="Time:" textFill="#bcb3b3" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <DropShadow radius="4.75" width="0.0" />
+         </effect>
+      </Label>
+   </children>
+   
+</Pane>

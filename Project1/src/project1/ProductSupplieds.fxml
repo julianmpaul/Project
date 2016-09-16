@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="957.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project1.ProductSuppliedsController">
+   <content>
+<Pane prefHeight="576.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="suppliertable" layoutX="28.0" layoutY="49.0" prefHeight="193.0" prefWidth="272.0">
+        <columns>
+          <TableColumn fx:id="tcsupplier" prefWidth="193.0" text="Supplier" />
+            <TableColumn fx:id="tcsupplierid" prefWidth="76.0" text="Supplier ID" />
+        </columns>
+      </TableView>
+      <TableView fx:id="producttable" layoutX="310.0" layoutY="49.0" prefHeight="192.0" prefWidth="624.0">
+        <columns>
+          <TableColumn fx:id="tcproductname" prefWidth="281.0" text="Product Name" />
+          <TableColumn fx:id="tcproductcode" prefWidth="258.0" text="Product Code" />
+            <TableColumn fx:id="tcproductid" prefWidth="71.0" text="Product ID" />
+        </columns>
+      </TableView>
+      <Label layoutX="59.0" layoutY="262.0" text="Supplier Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="82.0" layoutY="300.0" text="Supplier ID">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="suppliername" editable="false" layoutX="164.0" layoutY="260.0" prefHeight="25.0" prefWidth="252.0" />
+      <TextField fx:id="supplierid" editable="false" layoutX="164.0" layoutY="298.0" prefHeight="25.0" prefWidth="252.0" />
+      <TableView fx:id="suppliedtable" layoutX="20.0" layoutY="400.0" prefHeight="167.0" prefWidth="900.0">
+         <columns>
+                  <TableColumn fx:id="tcsupplierid1" prefWidth="75.0" text="Supplier ID" />
+            <TableColumn fx:id="tcsupplier1" prefWidth="166.0" text="Supplier" />
+            <TableColumn fx:id="tcproductname1" prefWidth="283.0" text="Product Name" />
+            <TableColumn fx:id="tcproductcode1" prefWidth="275.0" text="Product Code" />
+            <TableColumn fx:id="tcproductid1" minWidth="8.0" prefWidth="84.0" text="Product ID" />
+         </columns>
+      </TableView>
+      <Button fx:id="add" layoutX="456.0" layoutY="349.0" mnemonicParsing="false" onAction="#add" text="Add Product to Suppliers" />
+      <Button fx:id="remove" layoutX="624.0" layoutY="349.0" mnemonicParsing="false" onAction="#remove" text="Remove Products from Supplier" />
+      
+            <TextField fx:id="productcode" editable="false" layoutX="565.0" layoutY="292.0" prefHeight="25.0" prefWidth="343.0" />
+            <TextField fx:id="productname" editable="false" layoutX="565.0" layoutY="254.0" prefHeight="25.0" prefWidth="342.0" />
+            <Label layoutX="462.0" layoutY="295.0" text="Product Code">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="460.0" layoutY="256.0" text="Product Name">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="-3.0" layoutY="-2.0" prefHeight="44.0" prefWidth="501.0" styleClass="labels" stylesheets="@Background.css" text="  Supplier Selection">
+               <font>
+                  <Font name="Baskerville Old Face" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="495.0" prefHeight="42.0" prefWidth="444.0" styleClass="labels" stylesheets="@Background.css" text="Product Selection">
+               <font>
+                  <Font name="Baskerville Old Face" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="-3.0" layoutY="340.0" prefHeight="44.0" prefWidth="436.0" styleClass="labels" stylesheets="@Background.css" text="  Products per Supplier">
+               <font>
+                  <Font name="Baskerville Old Face" size="24.0" />
+               </font>
+            </Label>
+   </children>
+</Pane>
+ </content>
+   
+
+</ScrollPane>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="957.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project1.OrderProductsController">
+   <content>
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="568.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="-1.0" layoutY="-2.0" prefHeight="54.0" prefWidth="942.0" styleClass="labels" stylesheets="@Background.css" text="  Create Order">
+         <font>
+            <Font name="Baskerville Old Face" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="269.0" text="Product Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="308.0" text="Product ID">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="productname" editable="false" layoutX="145.0" layoutY="267.0" prefHeight="25.0" prefWidth="202.0" promptText="Product Name" />
+      <TextField fx:id="productid" editable="false" layoutX="145.0" layoutY="305.0" prefHeight="25.0" prefWidth="202.0" promptText="Product ID" />
+      <TableView fx:id="tblproducts" layoutX="26.0" layoutY="107.0" prefHeight="145.0" prefWidth="910.0">
+         <columns>
+            <TableColumn fx:id="tcsupplier" prefWidth="249.0" text="Supplier" />
+            <TableColumn fx:id="tcproductid" minWidth="8.0" prefWidth="147.0" text="Product ID" />
+            <TableColumn fx:id="tcproductname" prefWidth="343.0" text="Product Name" />
+            <TableColumn fx:id="tcremaining" prefWidth="151.0" text="Remaining Stock/s" />
+         </columns>
+      </TableView>
+      <Label layoutX="42.0" layoutY="70.0" text="Supplier">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="360.0" layoutY="70.0" text="Order No.">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="orderno" layoutX="450.0" layoutY="58.0" prefHeight="44.0" prefWidth="112.0" text="Order-00001" textFill="#ab3f3f">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="stocks" editable="false" layoutX="145.0" layoutY="344.0" prefHeight="25.0" prefWidth="202.0" promptText="Stock/s" />
+      <Label layoutX="14.0" layoutY="347.0" text="Remaining Stock/s">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="405.0" layoutY="270.0" text="Qty to be ordered:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="442.0" layoutY="308.0" text="Price per qty">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="481.0" layoutY="347.0" text="Total">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="total" editable="false" layoutX="536.0" layoutY="344.0" prefHeight="25.0" prefWidth="202.0" promptText="Total" />
+      <Button fx:id="add" layoutX="759.0" layoutY="267.0" mnemonicParsing="false" onAction="#add" prefHeight="25.0" prefWidth="154.0" text="Add this product to list" />
+      <Button fx:id="remove" layoutX="759.0" layoutY="343.0" mnemonicParsing="false" onAction="#remove" text="Remove Product from List" />
+      <TableView fx:id="tblorder" layoutX="26.0" layoutY="381.0" prefHeight="145.0" prefWidth="910.0">
+         <columns>
+            <TableColumn fx:id="tcsupplier1" prefWidth="199.0" text="Supplier" />
+            <TableColumn fx:id="tcproductid1" minWidth="8.0" prefWidth="134.0" text="Product ID" />
+            <TableColumn fx:id="tcproductname1" prefWidth="250.0" text="Product Name" />
+            <TableColumn fx:id="tcqty" prefWidth="100.0" text="Quantity" />
+            <TableColumn fx:id="tcprice" prefWidth="104.0" text="Price per Qty" />
+            <TableColumn fx:id="tctotal" prefWidth="106.0" text="Total" />
+         </columns>
+      </TableView>
+      <Button fx:id="make" layoutX="759.0" layoutY="305.0" mnemonicParsing="false" onAction="#make" prefHeight="25.0" prefWidth="90.0" text="Make Order" />
+      <Button fx:id="print" layoutX="851.0" layoutY="305.0" mnemonicParsing="false" onAction="#print" prefHeight="25.0" prefWidth="62.0" text="Print" />
+      <ComboBox fx:id="cbsupplier" layoutX="110.0" layoutY="68.0" onAction="#supplier" prefWidth="150.0" />
+   </children>
+</AnchorPane>
+</content>
+   <effect>
+      <DropShadow color="#37aabf" />
+   </effect>
+   
+</ScrollPane>

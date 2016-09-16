@@ -1,0 +1,15 @@
+/*
+ * Empty Stylesheet file.
+ */
+.background {
+    -fx-background-image: url("Background.jpg");
+    
+}
+.labels {
+    -fx-background-color: #11b894;
+    
+}
+.labels1 {
+    -fx-background-color: whitesmoke;
+    
+}

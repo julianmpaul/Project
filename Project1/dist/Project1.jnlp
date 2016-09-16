@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Project1.jnlp">
+  <information>
+    <title>Project1</title>
+    <vendor>Jeankie</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Project1.jar" size="283942" download="eager" />
+    <jar href="lib\barbecue-1.5-beta1.jar" size="98666" download="eager" />
+    <jar href="lib\commons-beanutils-1.8.2.jar" size="247875" download="eager" />
+    <jar href="lib\commons-collections-3.2.1.jar" size="624550" download="eager" />
+    <jar href="lib\commons-digester-1.7.jar" size="150493" download="eager" />
+    <jar href="lib\commons-logging-1.1.1.jar" size="65308" download="eager" />
+    <jar href="lib\groovy-all-1.8.0.jar" size="6286060" download="eager" />
+    <jar href="lib\itext-2.1.7.jar" size="1183061" download="eager" />
+    <jar href="lib\itext7-barcodes-7.0.0.jar" size="147503" download="eager" />
+    <jar href="lib\jasperreports-4.0.2.jar" size="3332138" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.22-bin.jar" size="863399" download="eager" />
+  </resources>
+<security>
+  <all-permissions/>
+</security>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Project1" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="project1.Project1"  name="Project1" />
+  <update check="always"/>
+</jnlp>

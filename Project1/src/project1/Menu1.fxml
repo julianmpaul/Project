@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="1360.0" styleClass="background" stylesheets="@Background.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project1.MenuController">
+   <children>
+      <MenuBar layoutY="2.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Transaction  |">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#orderproduct" text="Order Product" />
+                  <MenuItem mnemonicParsing="false" text="Receive Product" />
+                  <MenuItem mnemonicParsing="false" text="To be return products to suppliers" />
+                  <MenuItem mnemonicParsing="false" text="Return Products from Customer" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Maintenance  |">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#brandbreed" text="Brand/Breed" />
+                  <MenuItem mnemonicParsing="false" onAction="#category" text="Category" />
+                  <MenuItem mnemonicParsing="false" onAction="#product" text="Product" />
+                  <MenuItem mnemonicParsing="false" onAction="#supplier" text="Supplier" />
+                  <MenuItem mnemonicParsing="false" onAction="#vat" text="VAT" />
+                  <MenuItem mnemonicParsing="false" onAction="#createcode" text="Create Barcode" />
+                  <MenuItem mnemonicParsing="false" text="Discount's" />
+                  <MenuItem mnemonicParsing="false" onAction="#productsupplieds" text="Product's Supplier" />
+               </items></Menu>
+            <Menu mnemonicParsing="false" text="Inquiry  |">
+              <items>
+                  <MenuItem mnemonicParsing="false" text="Logged" />
+                  <MenuItem mnemonicParsing="false" text="List of Users" />
+                  <MenuItem mnemonicParsing="false" text="List of Brands" />
+                  <MenuItem mnemonicParsing="false" text="List of Category" />
+                <MenuItem mnemonicParsing="false" text="List of Products" />
+                  <MenuItem mnemonicParsing="false" text="List of Suppliers" />
+                  <MenuItem mnemonicParsing="false" text="List of Vats" />
+                  <MenuItem mnemonicParsing="false" text="Product Supplier's List" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Inventory   |">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Critical Levels" />
+                  <MenuItem mnemonicParsing="false" text="Fast and Slow Moving Products" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Reports  |">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Sales Report" />
+                  <MenuItem mnemonicParsing="false" text="Inventory Report" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Billing  |">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Cashiering Module" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Utilities">
+              <items>
+                  <MenuItem mnemonicParsing="false" onAction="#profile" text="Profile" />
+                <MenuItem mnemonicParsing="false" onAction="#user" text="Users" />
+                  <MenuItem mnemonicParsing="false" text="Logs" />
+                  <MenuItem mnemonicParsing="false" text="Back Up Database" />
+              </items>
+            </Menu>
+        </menus>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </MenuBar>
+      <AnchorPane fx:id="menu" layoutX="25.0" layoutY="166.0" prefHeight="430.0" prefWidth="957.0" />
+      <AnchorPane fx:id="menuright" layoutX="996.0" layoutY="166.0" prefHeight="430.0" prefWidth="337.0" />
+      <Label layoutX="87.0" layoutY="52.0" text="Inventory Management and Billing System for Joy-Joy's Petshop" textFill="#d3c0c0">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Label layoutY="644.0" prefHeight="62.0" prefWidth="415.0" styleClass="labels" stylesheets="@Background.css" text="                                                    Position:">
+         <font>
+            <Font name="Baskerville Old Face" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="722.0" layoutY="644.0" prefHeight="62.0" prefWidth="133.0" styleClass="labels" stylesheets="@Background.css" text=" Username:">
+         <font>
+            <Font name="Baskerville Old Face" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="Date" layoutX="25.0" layoutY="676.0" prefHeight="25.0" prefWidth="172.0" text="Date:" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="Time" layoutX="25.0" layoutY="650.0" prefHeight="25.0" prefWidth="172.0" text="Time:" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+      <Label fx:id="username" layoutX="855.0" layoutY="644.0" prefHeight="62.0" prefWidth="252.0" styleClass="labels1" stylesheets="@Background.css" text=" ">
+         <font>
+            <Font name="Baskerville Old Face" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="position" layoutX="414.0" layoutY="644.0" prefHeight="62.0" prefWidth="309.0" styleClass="labels1" stylesheets="@Background.css" text=" ">
+         <font>
+            <Font name="Baskerville Old Face" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="1108.0" layoutY="644.0" prefHeight="62.0" prefWidth="252.0" styleClass="labels" stylesheets="@Background.css">
+         <font>
+            <Font name="Baskerville Old Face" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="1252.0" layoutY="656.0" mnemonicParsing="false" onAction="#exit" prefHeight="39.0" prefWidth="81.0" text="Exit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="1165.0" layoutY="656.0" mnemonicParsing="false" onAction="#logout" text="Logout">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

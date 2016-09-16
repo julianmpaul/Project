@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="337" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project1.CreatecodeController">
+<content>
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="427.0" prefWidth="334.0">
+   <children>
+      <Label layoutX="22.0" layoutY="73.0" text="Code">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="image" fitHeight="149.0" fitWidth="298.0" layoutX="22.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="create" layoutX="73.0" layoutY="352.0" mnemonicParsing="false" onAction="#create" text="Create">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="print" layoutX="187.0" layoutY="352.0" mnemonicParsing="false" onAction="#print" prefHeight="44.0" prefWidth="86.0" text="Print">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+            <Label layoutX="-3.0" layoutY="-2.0" prefHeight="49.0" prefWidth="337.0" styleClass="labels" stylesheets="@Background.css" text="  Create Barcode">
+               <font>
+                  <Font name="Baskerville Old Face" size="24.0" />
+               </font>
+            </Label>
+   </children>
+</AnchorPane>
+</content>
+<effect>
+      <DropShadow color="#37aabf" />
+   </effect>
+</ScrollPane>
