@@ -46,14 +46,14 @@ public class ProductController implements Initializable {
         Connection con;
         private int num, new_id;
         private String catid,bbid;
-        private RestrictiveTextField code,name,stock,minqty,maxqty,price,pricewvat;
+        private RestrictiveTextField code,name,stock,reorder,price,pricewvat;
         private RestrictiveTextArea description;
         @FXML
         private Pane pane;
         @FXML
         private TableView <product> producttable;
         @FXML
-        private TableColumn tcproductnumber,tcproductcode,tcproductname,tcdescription,tcstockinhand,tcprice,tcpricewvat,tcmin,tcmax,tcbb,tccategory;
+        private TableColumn tcproductnumber,tcproductcode,tcproductname,tcdescription,tcstockinhand,tcprice,tcpricewvat,tcreorder,tcbb,tccategory;
         @FXML
         private Label productidlabel;
         @FXML
@@ -63,7 +63,7 @@ public class ProductController implements Initializable {
         
         @FXML
         private void save(ActionEvent e){
-            if(( code.getText() == null || name.getText() == null || description.getText() == null || minqty.getText() == null || maxqty.getText() == null || price.getText() == null || pricewvat.getText() == null || category.getValue() == null || brandbreed.getValue() == null ) || ( code.getText().isEmpty() || name.getText().isEmpty() || description.getText().isEmpty() || minqty.getText().isEmpty() || maxqty.getText().isEmpty() || price.getText().isEmpty() || pricewvat.getText().isEmpty())){
+            if(( code.getText() == null || name.getText() == null || description.getText() == null || reorder.getText() == null || price.getText() == null || pricewvat.getText() == null || category.getValue() == null || brandbreed.getValue() == null ) || ( code.getText().isEmpty() || name.getText().isEmpty() || description.getText().isEmpty() || reorder.getText().isEmpty() || price.getText().isEmpty() || pricewvat.getText().isEmpty())){
                     
                 alertinput();
                 
@@ -101,18 +101,7 @@ public class ProductController implements Initializable {
                     
                     if(null == (pnumb) && null ==(pnam)){
                         
-                            int min = Integer.parseInt(minqty.getText());
-                            int max = Integer.parseInt(maxqty.getText());
-                            if(min >= max){
-                                
-                                Alert alert1 = new Alert(Alert.AlertType.WARNING);
-                                alert1.setTitle("Message");
-                                alert1.setHeaderText(null);
-                                alert1.setContentText("Maximum quantity is lower or equals to minimum quantity !");
-                                alert1.initStyle(StageStyle.UTILITY);
-                                alert1.showAndWait();
-                                
-                            }else{
+                            
                                 
                                 try{
                             con = Database.connect();
@@ -120,11 +109,11 @@ public class ProductController implements Initializable {
                             
                             String SQL1 = "INSERT INTO `database`.`tblproducts`"
                                     + " (`productID`, `productcode`, `productname`, `description`, `stock`,"
-                                    + " `sellingprice`, `sellingpricewithvat`, `minQTY`, `maxQTY`,"
+                                    + " `sellingprice`, `sellingpricewithvat`, `reorderpoint`,"
                                     + " `bbID`, `categoryID`, `loggedID`) "
                                     + " VALUES ('"+productidlabel.getText()+"', '"+code.getText()+"', '"+name.getText()+"',"
                                     + " '"+description.getText()+"', '"+stock.getText()+"', '"+price.getText()+"',"
-                                    + " '"+pricewvat.getText()+"', '"+minqty.getText()+"', '"+maxqty.getText()+"',"
+                                    + " '"+pricewvat.getText()+"', '"+reorder.getText()+"',"
                                     + " '"+bbid+"', '"+catid+"', '"+LoginController.loggedid+"'); ";
                             
                             st.executeUpdate(SQL1);
@@ -145,7 +134,7 @@ public class ProductController implements Initializable {
                         }catch(SQLException ee){
                             System.out.println(ee);
                     }
-                    }
+                    
                     }else{
                             Alert alert1 = new Alert(Alert.AlertType.WARNING);
                             alert1.setTitle("Message");
@@ -179,7 +168,7 @@ public class ProductController implements Initializable {
         
         @FXML
         private void update(ActionEvent e){
-            if(( code.getText() == null || name.getText() == null || description.getText() == null || minqty.getText() == null || maxqty.getText() == null || price.getText() == null || pricewvat.getText() == null || category.getValue() == null || brandbreed.getValue() == null ) || ( code.getText().isEmpty() || name.getText().isEmpty() || description.getText().isEmpty() || minqty.getText().isEmpty() || maxqty.getText().isEmpty() || price.getText().isEmpty() || pricewvat.getText().isEmpty())){
+            if(( code.getText() == null || name.getText() == null || description.getText() == null || reorder.getText() == null || price.getText() == null || pricewvat.getText() == null || category.getValue() == null || brandbreed.getValue() == null ) || ( code.getText().isEmpty() || name.getText().isEmpty() || description.getText().isEmpty() || reorder.getText().isEmpty() || price.getText().isEmpty() || pricewvat.getText().isEmpty())){
                     
                 alertinput();
                 
@@ -196,29 +185,15 @@ public class ProductController implements Initializable {
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK){
                     
-                    
-                    int min = Integer.parseInt(minqty.getText());
-                    int max = Integer.parseInt(maxqty.getText());
-                    if(min >= max){
-                                
-                                Alert alert1 = new Alert(Alert.AlertType.WARNING);
-                                alert1.setTitle("Message");
-                                alert1.setHeaderText(null);
-                                alert1.setContentText("Maximum quantity is lower or equals to minimum quantity !");
-                                alert1.initStyle(StageStyle.UTILITY);
-                                alert1.showAndWait();
-                                
-                            }else{
-                                
-                                try{
+                               try{
                             con = Database.connect();
                             Statement st= con.createStatement();
                             String SQL = "UPDATE `database`.`tblproducts`"
                                     + " SET `productcode` = '"+code.getText()+"' ,"
                                     + "`productname` = '"+name.getText()+"' ,`description` = '"+description.getText()+"' ,"
                                     + "`stock` = '"+stock.getText()+"' ,`sellingprice` = '"+price.getText()+"' ,"
-                                    + "`sellingpricewithvat` = '"+pricewvat.getText()+"' ,`minQTY` = '"+minqty.getText()+"' ,"
-                                    + "`maxQTY` = '"+maxqty.getText()+"', `bbID` = '"+bbid+"', `categoryID` = '"+catid+"', `loggedID` = '"+LoginController.loggedid+"' WHERE `productID` = '"+productidlabel.getText()+"'; ";
+                                    + "`sellingpricewithvat` = '"+pricewvat.getText()+"' ,`reorderpoint` = '"+reorder.getText()+"' ,"
+                                    + " `bbID` = '"+bbid+"', `categoryID` = '"+catid+"', `loggedID` = '"+LoginController.loggedid+"' WHERE `productID` = '"+productidlabel.getText()+"'; ";
                             st.executeUpdate(SQL);
                             con.close();
                             
@@ -236,7 +211,7 @@ public class ProductController implements Initializable {
                             
                         }catch(SQLException ee){
                             System.out.println(ee);
-                    }
+                    
                     }
                     
                         
@@ -395,33 +370,26 @@ public class ProductController implements Initializable {
         stock.restrictProperty().set("[0-9]");
         stock.maxLengthProperty().set(5);
         stock.setLayoutX(499);
-        stock.setLayoutY(131);
+        stock.setLayoutY(86);
         stock.setPrefSize(200, 25);
         
         stock.setPromptText("Stock In Hand");
         stock.setEditable(false);
         
-        minqty = new RestrictiveTextField();
-        minqty.restrictProperty().set("[0-9]");
-        minqty.maxLengthProperty().set(5);
-        minqty.setLayoutX(499);
-        minqty.setLayoutY(179);
-        minqty.setPrefSize(200, 25);
-        minqty.setPromptText("Minimum Quantity");
+        reorder = new RestrictiveTextField();
+        reorder.restrictProperty().set("[0-9]");
+        reorder.maxLengthProperty().set(5);
+        reorder.setLayoutX(499);
+        reorder.setLayoutY(134);
+        reorder.setPrefSize(200, 25);
+        reorder.setPromptText("Reorder Point");
         
-        maxqty = new RestrictiveTextField();
-        maxqty.restrictProperty().set("[0-9]");
-        maxqty.maxLengthProperty().set(5);
-        maxqty.setLayoutX(499);
-        maxqty.setLayoutY(229);
-        maxqty.setPrefSize(200, 25);
-        maxqty.setPromptText("Maximum Quantity");
         
         price = new RestrictiveTextField();
         price.restrictProperty().set("[.,0-9]");
         price.maxLengthProperty().set(5);
         price.setLayoutX(499);
-        price.setLayoutY(280);
+        price.setLayoutY(184);
         price.setPrefSize(200, 25);
         price.setPromptText("Price");
         
@@ -455,12 +423,12 @@ public class ProductController implements Initializable {
         pricewvat.restrictProperty().set("[.,0-9]");
         pricewvat.maxLengthProperty().set(8);
         pricewvat.setLayoutX(499);
-        pricewvat.setLayoutY(334);
+        pricewvat.setLayoutY(235);
         pricewvat.setPrefSize(200, 25);
         pricewvat.setPromptText("Price w/ vat");
         pricewvat.setEditable(false);
         
-        pane.getChildren().addAll(code,name,description,stock,minqty,maxqty,price,pricewvat);
+        pane.getChildren().addAll(code,name,description,stock,reorder,price,pricewvat);
         
         datareset();
         
@@ -480,13 +448,11 @@ public class ProductController implements Initializable {
                category.setValue(newValue.pcname);
                brandbreed.setValue(newValue.pbname);
                String a = String.valueOf(newValue.pstock);
-               String b = String.valueOf(newValue.pminqty);
-               String c = String.valueOf(newValue.pmaxqty);
+               String b = String.valueOf(newValue.reorder);
                String d = String.valueOf(newValue.psp);
                String e = String.valueOf(newValue.pspwv);
                stock.setText(a);
-               minqty.setText(b);
-               maxqty.setText(c);
+               reorder.setText(b);
                price.setText(d);
                pricewvat.setText(e);        
                
@@ -551,8 +517,7 @@ public class ProductController implements Initializable {
     private void datareset() {
                             code.setText(null);
                             name.setText(null);
-                            minqty.setText(null);
-                            maxqty.setText(null);
+                            reorder.setText(null);
                             price.setText(null);
                             stock.setText("0");
                             pricewvat.setText(null);
@@ -606,8 +571,8 @@ public class ProductController implements Initializable {
         pt.stock(tcstockinhand);
         pt.sellprice(tcprice);
         pt.sellpricewvat(tcpricewvat);
-        pt.minqty(tcmin);
-        pt.maxqty(tcmax);
+        pt.reorderp(tcreorder);
+        
         pt.bbname(tcbb);
         pt.cname(tccategory);
         producttable.getItems().setAll(getproductInfo());
@@ -624,10 +589,10 @@ public class ProductController implements Initializable {
     
     public class product{
         private String pID,pnumber,pname,pdescription,pbname,pcname;
-        private int pstock,psp,pspwv,pminqty,pmaxqty;
+        private int pstock,psp,pspwv,reorder;
         
         
-        public product(String proID,String pronumber,String proname,String prodescription,int stock1,int sp,int spwv,int minqty1,int maxqty1,String bbname,String catname){
+        public product(String proID,String pronumber,String proname,String prodescription,int stock1,int sp,int spwv,int reorderp,String bbname,String catname){
             
             this.pID = proID;
             this.pnumber = pronumber;
@@ -636,8 +601,8 @@ public class ProductController implements Initializable {
             this.pstock = stock1;
             this.psp = sp;
             this.pspwv = spwv;
-            this.pminqty = minqty1;
-            this.pmaxqty = maxqty1;
+            this.reorder = reorderp;
+            
             this.pbname = bbname;
             this.pcname = catname;
   
@@ -665,11 +630,8 @@ public class ProductController implements Initializable {
         public int getpspwv(){            return pspwv;   }
         public void setpspwv(int spwv) {  pspwv = spwv;   }
         //---------
-        public int getminqty(){            return pminqty;   }
-        public void setminqty(int minqty1) {  pminqty = minqty1;   }
-        //---------
-        public int getmaxqty(){            return pmaxqty;   }
-        public void setmaxqty(int maxqty1) {  pmaxqty = maxqty1;   }
+        public int getreorder(){            return reorder;   }
+        public void setreorder(int reorderp) {  reorder = reorderp;   }
         //---------
         public String getbbname(){            return pbname;   }
         public void setbbname(String bbname) {  pbname = bbname;   }
@@ -688,7 +650,7 @@ public class ProductController implements Initializable {
         
          String SQL = "SELECT tp.productid,tp.productcode,tp.productname,"
                  + "tp.description,tp.stock,tp.sellingprice,tp.sellingpricewithvat,"
-                 + "tp.minQTY,tp.maxQTY,tb.`brandname`,tc.`categoryName`"
+                 + "tp.reorderpoint,tb.`brandname`,tc.`categoryName`"
                  + " FROM tblproducts AS tp INNER JOIN tblbrandbreed AS tb ON tp.`bbID` = tb.`bbID`"
                  + " INNER JOIN tblcategory AS tc ON tp.`categoryID` = tc.`categoryID`;";
 
@@ -702,13 +664,12 @@ public class ProductController implements Initializable {
                 int stock1 = rs.getInt(5);
                 int sp = rs.getInt(6);
                 int spwv = rs.getInt(7);
-                int minqty1 = rs.getInt(8);
-                int maxqty1 = rs.getInt(9);
-                String bbname = rs.getString(10);
-                String catname = rs.getString(11);
+                int reorderp = rs.getInt(8);
+                 String bbname = rs.getString(9);
+                String catname = rs.getString(10);
                 
                 
-                RL.add(new product(proID,pronumber,proname,prodescription,stock1,sp,spwv,minqty1,maxqty1,bbname,catname));
+                RL.add(new product(proID,pronumber,proname,prodescription,stock1,sp,spwv,reorderp,bbname,catname));
             }con.close();
         } catch (SQLException ex) {
             System.out.println("Product Error: "+ex);

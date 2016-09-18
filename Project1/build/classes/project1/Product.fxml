@@ -22,7 +22,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="422.0" layoutY="134.0" text="Stock/s">
+      <Label layoutX="422.0" layoutY="89.0" text="Stock/s">
          <font>
             <Font size="14.0" />
          </font>
@@ -37,32 +37,27 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="51.0" layoutY="433.0" text="Brand/Breed">
+      <Label layoutX="408.0" layoutY="330.0" text="Brand/Breed">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="403.0" layoutY="231.0" text="Maximum Qty">
+      <Label layoutX="404.0" layoutY="136.0" text="Reorder Point">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="404.0" layoutY="181.0" text="Minimum Qty">
+      <Label layoutX="430.0" layoutY="186.0" text="Price">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="430.0" layoutY="283.0" text="Price">
+      <Label layoutX="408.0" layoutY="239.0" text="Price w/ Vat">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="408.0" layoutY="336.0" text="Price w/ Vat">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <TableView fx:id="producttable" layoutX="25.0" layoutY="491.0" prefHeight="180.0" prefWidth="895.0">
+      <TableView fx:id="producttable" layoutX="25.0" layoutY="398.0" prefHeight="150.0" prefWidth="895.0">
          <columns>
             <TableColumn fx:id="tcproductnumber" prefWidth="110.0" text="Product No." />
             <TableColumn fx:id="tcproductcode" prefWidth="203.0" text="Product Code" />
@@ -71,13 +66,12 @@
             <TableColumn fx:id="tcstockinhand" prefWidth="85.0" text="Stock in Hand" />
             <TableColumn fx:id="tcprice" prefWidth="73.0" text="Price" />
             <TableColumn fx:id="tcpricewvat" text="Price w/ Vat" />
-            <TableColumn fx:id="tcmin" prefWidth="89.0" text="Minumum Qty" />
-            <TableColumn fx:id="tcmax" prefWidth="103.0" text="Maximum Qty" />
+            <TableColumn fx:id="tcreorder" prefWidth="89.0" text="Reorder Point" />
             <TableColumn fx:id="tcbb" prefWidth="121.0" text="Brand/Breed" />
             <TableColumn fx:id="tccategory" prefWidth="139.0" text="Category" />
          </columns>
       </TableView>
-      <Label layoutX="60.0" layoutY="386.0" text="Category">
+      <Label layoutX="417.0" layoutY="283.0" text="Category">
          <font>
             <Font size="14.0" />
          </font>
@@ -87,16 +81,16 @@
       <Button fx:id="btnreset" layoutX="817.0" layoutY="192.0" mnemonicParsing="false" onAction="#reset" prefHeight="27.0" prefWidth="72.0" text="Reset" />
       <Button fx:id="btndelete" layoutX="817.0" layoutY="286.0" mnemonicParsing="false" onAction="#delete" prefHeight="27.0" prefWidth="72.0" text="Delete" />
       <Button fx:id="btncancel" layoutX="817.0" layoutY="333.0" mnemonicParsing="false" onAction="#cancel" prefHeight="27.0" prefWidth="72.0" text="Cancel" />
-      <Separator layoutX="383.0" layoutY="92.0" orientation="VERTICAL" prefHeight="356.0" prefWidth="0.0" />
-      <Separator layoutX="772.0" layoutY="88.0" orientation="VERTICAL" prefHeight="356.0" prefWidth="0.0" />
-      <Separator layoutX="45.0" layoutY="470.0" prefHeight="5.0" prefWidth="878.0" />
+      <Separator layoutX="387.0" layoutY="92.0" orientation="VERTICAL" prefHeight="288.0" prefWidth="2.0" />
+      <Separator layoutX="774.0" layoutY="88.0" orientation="VERTICAL" prefHeight="297.0" prefWidth="4.0" />
+      <Separator layoutX="23.0" layoutY="383.0" prefHeight="8.0" prefWidth="900.0" />
       <Label layoutX="28.0" layoutY="87.0" text="Product Number:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="category" layoutX="142.0" layoutY="384.0" onAction="#category" prefHeight="25.0" prefWidth="200.0" />
-      <ComboBox fx:id="brandbreed" layoutX="142.0" layoutY="431.0" onAction="#brandbreed" prefHeight="25.0" prefWidth="200.0" />
+      <ComboBox fx:id="category" layoutX="499.0" layoutY="281.0" onAction="#category" prefHeight="25.0" prefWidth="200.0" />
+      <ComboBox fx:id="brandbreed" layoutX="499.0" layoutY="328.0" onAction="#brandbreed" prefHeight="25.0" prefWidth="200.0" />
             <Label layoutX="-2.0" layoutY="-1.0" prefHeight="52.0" prefWidth="957.0" styleClass="labels" stylesheets="@Background.css" text="  Products">
                <font>
                   <Font name="Baskerville Old Face" size="24.0" />

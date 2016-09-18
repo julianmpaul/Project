@@ -137,15 +137,15 @@ public class productinfotable {
 
                 });
 }
-    public void minqty(TableColumn col){
+    public void reorderp(TableColumn col){
         
         col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ProductController.product,String>,ObservableValue<String>>(){                   
 
                     public ObservableValue<String> call(TableColumn.CellDataFeatures<ProductController.product, String> param) {                                                                                             
                         ProductController.product s = param.getValue();
                         StringProperty str = new SimpleStringProperty("");
-                        if(col.getText().equals("Minumum Qty")){
-                            str = new SimpleStringProperty(String.valueOf(s.getminqty()));
+                        if(col.getText().equals("Reorder Point")){
+                            str = new SimpleStringProperty(String.valueOf(s.getreorder()));
                            
                         }
                         
@@ -154,23 +154,7 @@ public class productinfotable {
 
                 });
 }
-    public void maxqty(TableColumn col){
-        
-        col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ProductController.product,String>,ObservableValue<String>>(){                   
-
-                    public ObservableValue<String> call(TableColumn.CellDataFeatures<ProductController.product, String> param) {                                                                                             
-                        ProductController.product s = param.getValue();
-                        StringProperty str = new SimpleStringProperty("");
-                        if(col.getText().equals("Maximum Qty")){
-                            str = new SimpleStringProperty(String.valueOf(s.getmaxqty()));
-                           
-                        }
-                        
-                        return str;
-                    }                   
-
-                });
-}
+    
     
     public void bbname(TableColumn col){
         
